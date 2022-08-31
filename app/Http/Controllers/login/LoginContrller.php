@@ -54,9 +54,11 @@ class LoginContrller extends Controller
             return redirect()->route('login');
 
             } catch (Exception $e) {
+                // dd( $e -> getMessage());
                 session()->flash('error', 'Lỗi Không Xác Định');
                 
-                return redirect()->back();
+                return redirect()->route('register')->withInput();
+
 
             }
         }
